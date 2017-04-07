@@ -1,0 +1,18 @@
+#cloud-config
+ssh_authorized_keys:
+  - ssh-rsa  AAAAB3NzaC1yc2EAAAADAQABAAABAQDNF4wwtDl3xzgVCeUWZjNldI/saUaWjENpX/gSZB5NP3rn8YC4EFhplQmGwX7YevW08weOWQXrAPXLJj862YT4FGU/tWvNF2rVujM72f6yCmZCAp7XHkBjF0n2nFLQBZVmou18lUF/UpOIXEgGEhYet773eqtmdNqJcMAmZABaVQ1wzGk0VSy8CvXpJ8Sz0r+noVxMeRPJxnmesUHRKCNtdD+LXMHF0lBSeiKQX9DraptkLX1XzQRqtlP/44CXRUoOwLEo0BwPqfoY/06TqFHqHhwaIlxn6H7xVqlMIv1fvF+eHvbUurb7q9Qxps+BULUFIfrfRJ8RvnMeTQZiCfvL 
+
+
+    etcd:
+      name: "core-01"
+    units:
+    - name: static.network
+      runtime: true
+      content: |
+        [Match]
+        Name=enp3s0
+
+        [Network]
+        Address=192.168.128.241/24
+        Gateway=192.168.128.2
+        DNS=192.168.128.2
